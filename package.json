@@ -17,5 +17,6 @@
   },
   "homepage": "https://github.com/daniel-dong/express-session-file-store#readme",
   "dependencies": {
+    "express-session": "^1.15.3"
   }
 }

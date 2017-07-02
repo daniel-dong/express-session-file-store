@@ -3,11 +3,14 @@
 const path = require('path');
 const fs = require('fs');
 
+const expressSession = require('express-session');
+
 
 const MyFileStore = function (directory) {
     this.directory = directory;
 };
 
+MyFileStore.prototype.prototype = expressSession.Store.prototype;
 
 MyFileStore.prototype.get = function (sessionID, callback) {
     let sessionFilePath = path.join(this.directory, sessionID);
@@ -28,7 +31,6 @@ MyFileStore.prototype.get = function (sessionID, callback) {
     });
 };
 
-
 MyFileStore.prototype.set = function (sessionID, session, callback) {
     let sessionFilePath = path.join(this.directory, sessionID);
     let data = JSON.stringify(session);
@@ -38,7 +40,6 @@ MyFileStore.prototype.set = function (sessionID, session, callback) {
     });
 };
 
-
 MyFileStore.prototype.destroy = function (sessionID, callback) {
     let sessionFilePath = path.join(this.directory, sessionID);
 
@@ -46,6 +47,5 @@ MyFileStore.prototype.destroy = function (sessionID, callback) {
         return callback(err);
     });
 };
-
 
 module.exports = MyFileStore;
