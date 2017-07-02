@@ -1,6 +1,6 @@
 {
   "name": "express-session-file-store",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "根据express-session的store接口实现一个存储到文件的引擎。",
   "main": "index.js",
   "scripts": {

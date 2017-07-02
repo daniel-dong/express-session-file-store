@@ -10,7 +10,7 @@ const MyFileStore = function (directory) {
     this.directory = directory;
 };
 
-MyFileStore.prototype.prototype = expressSession.Store.prototype;
+MyFileStore.prototype = Object.create(expressSession.Store.prototype);
 
 MyFileStore.prototype.get = function (sessionID, callback) {
     let sessionFilePath = path.join(this.directory, sessionID);
